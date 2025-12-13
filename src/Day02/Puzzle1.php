@@ -13,9 +13,9 @@ class Puzzle1
             ?: throw new Exception('Failed to read input file.');
 
         // TODO: Solve puzzle 1.
-        return (new Collection(explode(",", $input)))
-            ->map(fn ($range) => explode("-", $range)) // Split ranges into bounds
-            ->map(fn ($bounds) => $this->findInvalidIds((int)$bounds[0], (int)$bounds[1])) // Find invalid IDs in each range
+        return (new Collection(explode(',', $input)))
+            ->map(fn ($range) => explode('-', $range)) // Split ranges into bounds
+            ->map(fn ($bounds) => $this->findInvalidIds((int) $bounds[0], (int) $bounds[1])) // Find invalid IDs in each range
             ->flatten() // Flatten the array of arrays
             ->sum(); // Sum counts of invalid IDs
 

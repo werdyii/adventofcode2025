@@ -14,6 +14,7 @@ class Puzzle2
 
         // TODO: Solve puzzle 2.
         echo "The dial starts by pointing at 50.\n";
+
         return (new Collection(explode("\n", $input)))->reduce(function ($state, $move) {
 
             if ($move === '') {
@@ -28,9 +29,9 @@ class Puzzle2
 
             // Delta cez ternár (bez if-u)
             $delta = ($direction === 'R') ? $value : -$value;
-            
+
             $current = $state['current'];
-            $zeroHits = $state['zeroHits']; 
+            $zeroHits = $state['zeroHits'];
 
             // 1. plné rotácie
             $zeroHits += intdiv(abs($delta), 100);
@@ -40,11 +41,11 @@ class Puzzle2
 
             if ($remainder !== 0) {
                 $start = $current;
-                $end   = $current + $remainder;
+                $end = $current + $remainder;
 
                 if (
                     ($remainder > 0 && $start < 100 && $end >= 100) ||
-                    ($remainder < 0 && $start > 0   && $end <= 0)
+                    ($remainder < 0 && $start > 0 && $end <= 0)
                 ) {
                     $zeroHits++;
                 }
