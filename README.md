@@ -15,6 +15,8 @@ composer install
 ./vendor/bin/phpunit
 composer test
 composer pest
+./vendor/bin/pest ./tests/DayXTest.php 
+./vendor/bin/pest ./tests/DayXTest.php --colors
 ```
 
 ## Running opinionated PHP code style fixer for minimalists
@@ -27,7 +29,7 @@ composer lint
 ## Running a solution
 
 ```
-composer solve <day> <puzzle>
+composer solve <day> <puzzle> <input>
 ```
 
 ## Running all solutions
@@ -39,10 +41,5 @@ composer solve all
 ## Generating the next day
 
 ```
-bash ./scaffold.sh <day>
+bash ./scaffold.sh <dayX> <session>
 ```
-
-https://github.com/mikedodd/AdventOfCode2024/tree/main
-
-./vendor/bin/pest ./tests/Day8Test.php 
-./vendor/bin/pest ./tests/Day10Test.php --colors
