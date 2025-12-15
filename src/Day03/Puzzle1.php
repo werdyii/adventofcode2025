@@ -15,7 +15,7 @@ class Puzzle1
         // TODO: Solve puzzle 1.
         return (new Collection(explode("\n", $input)))
             ->map(fn ($bank) => $this->maxShock($bank))
-                ->sum();
+            ->sum();
     }
 
     private function maxShock(string $s): int

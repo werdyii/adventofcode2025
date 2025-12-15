@@ -13,8 +13,9 @@ class Puzzle2
             ?: throw new Exception('Failed to read input file.');
 
         // TODO: Solve puzzle 2.
-        list( $ranges, $ingredients ) = explode("\n\n", $input);
-        $ranges = (new Collection(explode("\n", $ranges)))->map(fn($line) => array_map('intval', explode("-", trim($line))));
+        [$ranges, $ingredients] = explode("\n\n", $input);
+        $ranges = (new Collection(explode("\n", $ranges)))->map(fn ($line) => array_map('intval', explode('-', trim($line))));
+
         return $ranges
             // 1️⃣ zoradiť podľa začiatku
             ->sortBy(fn ($i) => $i[0])
@@ -45,8 +46,6 @@ class Puzzle2
 
             // 3️⃣ spočítať veľkosť
             ->sum(fn ($i) => $i[1] - $i[0] + 1);
-
-
 
     }
 }

@@ -13,10 +13,10 @@ class Puzzle1
             ?: throw new Exception('Failed to read input file.');
 
         // TODO: Solve puzzle 1.
-        list( $ranges, $ingredients ) = explode("\n\n", $input);
-        $ranges = (new Collection(explode("\n", $ranges)))->map(fn($line) => array_map('intval', explode("-", trim($line))));
-        $ingredients = (new Collection(explode("\n", $ingredients)))->map(fn($line) => intval(trim($line)));
-        
+        [$ranges, $ingredients] = explode("\n\n", $input);
+        $ranges = (new Collection(explode("\n", $ranges)))->map(fn ($line) => array_map('intval', explode('-', trim($line))));
+        $ingredients = (new Collection(explode("\n", $ingredients)))->map(fn ($line) => intval(trim($line)));
+
         return $ingredients
             ->reduce(function (int $sum, int $ingredient) use ($ranges) {
                 // echo "\nChecking ingredient: $ingredient\n";
@@ -26,7 +26,8 @@ class Puzzle1
                         $sum++;
                         break;
                     }
-                };
+                }
+
                 // echo " => Current sum: $sum\n\n";
                 return $sum;
             }, 0);

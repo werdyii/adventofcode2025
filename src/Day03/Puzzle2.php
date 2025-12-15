@@ -15,7 +15,7 @@ class Puzzle2
         // TODO: Solve puzzle 2.
         return (new Collection(explode("\n", $input)))
             ->map(fn ($bank) => $this->maxShockK($bank))
-                ->sum();
+            ->sum();
     }
 
     private function maxShockK(string $s, int $k = 12): int
@@ -33,7 +33,7 @@ class Puzzle2
         foreach ($digits as $d) {
             while (
                 $toRemove > 0 &&
-                !empty($stack) &&
+                ! empty($stack) &&
                 end($stack) < $d
             ) {
                 array_pop($stack);
@@ -46,8 +46,8 @@ class Puzzle2
         if ($toRemove > 0) {
             $stack = array_slice($stack, 0, count($stack) - $toRemove);
         }
+
         // echo implode('', array_slice($stack, 0, $k)) . "\n";
         return (int) implode('', array_slice($stack, 0, $k));
     }
-
 }
